@@ -3,3 +3,7 @@ rules:
   - base: master
     upstream: stefanprodan:master
     mergeMethod: merge
+    assignees:
+      - Tibi02
+    reviewers:
+      - Tibi02

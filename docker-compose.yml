@@ -1,8 +1,10 @@
-version: '2.1'
+version: '3'
 
 networks:
   monitor-net:
     driver: bridge
+  nginx:
+    external: true
 
 volumes:
     prometheus_data: {}
@@ -101,6 +103,7 @@ services:
       - 3000
     networks:
       - monitor-net
+      - nginx
     labels:
       org.label-schema.group: "monitoring"
 

@@ -13,7 +13,7 @@ volumes:
 services:
 
   prometheus:
-    image: prom/prometheus:v2.25.0
+    image: prom/prometheus:v2.25.1
     container_name: prometheus
     volumes:
       - ./prometheus:/etc/prometheus
@@ -50,7 +50,7 @@ services:
       org.label-schema.group: "monitoring"
 
   nodeexporter:
-    image: prom/node-exporter:v1.1.1
+    image: prom/node-exporter:v1.1.2
     container_name: nodeexporter
     volumes:
       - /proc:/host/proc:ro
@@ -70,7 +70,7 @@ services:
       org.label-schema.group: "monitoring"
 
   cadvisor:
-    image: gcr.io/cadvisor/cadvisor:v0.38.8
+    image: gcr.io/cadvisor/cadvisor:v0.39.0
     container_name: cadvisor
     volumes:
       - /:/rootfs:ro
@@ -87,7 +87,7 @@ services:
       org.label-schema.group: "monitoring"
 
   grafana:
-    image: grafana/grafana:7.4.2
+    image: grafana/grafana:7.5.1
     container_name: grafana
     volumes:
       - grafana_data:/var/lib/grafana
@@ -120,7 +120,7 @@ services:
       org.label-schema.group: "monitoring"
 
   caddy:
-    image: stefanprodan/caddy
+    image: caddy:2.3.0
     container_name: caddy
     ports:
       - "3000:3000"
@@ -132,6 +132,7 @@ services:
     environment:
       - ADMIN_USER=${ADMIN_USER:-admin}
       - ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
+      - ADMIN_PASSWORD_HASH=${ADMIN_PASSWORD_HASH:-JDJhJDE0JE91S1FrN0Z0VEsyWmhrQVpON1VzdHVLSDkyWHdsN0xNbEZYdnNIZm1pb2d1blg4Y09mL0ZP}
     restart: unless-stopped
     networks:
       - monitor-net

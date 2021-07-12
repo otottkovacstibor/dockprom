@@ -70,7 +70,7 @@ services:
       org.label-schema.group: "monitoring"
 
   cadvisor:
-    image: gcr.io/cadvisor/cadvisor:v0.39.2
+    image: gcr.io/cadvisor/cadvisor:v0.40.0
     container_name: cadvisor
     volumes:
       - /:/rootfs:ro
@@ -87,7 +87,7 @@ services:
       org.label-schema.group: "monitoring"
 
   grafana:
-    image: grafana/grafana:8.0.4
+    image: grafana/grafana:8.0.5
     container_name: grafana
     volumes:
       - grafana_data:/var/lib/grafana

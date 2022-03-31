@@ -13,7 +13,7 @@ volumes:
 services:
 
   prometheus:
-    image: prom/prometheus:v2.32.1
+    image: prom/prometheus:v2.34.0
     container_name: prometheus
     volumes:
       - ./prometheus:/etc/prometheus
@@ -34,7 +34,7 @@ services:
       org.label-schema.group: "monitoring"
 
   alertmanager:
-    image: prom/alertmanager:v0.23.0
+    image: prom/alertmanager:v0.24.0
     container_name: alertmanager
     volumes:
       - ./alertmanager:/etc/alertmanager
@@ -70,7 +70,7 @@ services:
       org.label-schema.group: "monitoring"
 
   cadvisor:
-    image: gcr.io/cadvisor/cadvisor:v0.43.0
+    image: gcr.io/cadvisor/cadvisor:v0.44.0
     container_name: cadvisor
     privileged: true
     devices:
@@ -90,7 +90,7 @@ services:
       org.label-schema.group: "monitoring"
 
   grafana:
-    image: grafana/grafana:8.3.3
+    image: grafana/grafana:8.4.4
     container_name: grafana
     volumes:
       - grafana_data:/var/lib/grafana

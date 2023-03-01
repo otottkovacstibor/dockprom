@@ -13,7 +13,7 @@ volumes:
 services:
 
   prometheus:
-    image: prom/prometheus:v2.41.0
+    image: prom/prometheus:v2.42.0
     container_name: prometheus
     volumes:
       - ./prometheus:/etc/prometheus
@@ -70,7 +70,7 @@ services:
       org.label-schema.group: "monitoring"
 
   cadvisor:
-    image: gcr.io/cadvisor/cadvisor:v0.46.0
+    image: gcr.io/cadvisor/cadvisor:v0.47.1
     container_name: cadvisor
     privileged: true
     devices:
@@ -90,7 +90,7 @@ services:
       org.label-schema.group: "monitoring"
 
   grafana:
-    image: grafana/grafana:9.3.2
+    image: grafana/grafana:9.4.1
     container_name: grafana
     volumes:
       - grafana_data:/var/lib/grafana
@@ -123,7 +123,7 @@ services:
       org.label-schema.group: "monitoring"
 
   caddy:
-    image: caddy:2.6.2
+    image: caddy:2.6.4
     container_name: caddy
     ports:
       - "3000:3000"
